@@ -6,39 +6,23 @@
 
 
 // Our variables
-$base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-$base-font-size:   16px;
-$base-font-weight: 400;
-$small-font-size:  $base-font-size * 0.875;
-$base-line-height: 1.5;
+$drkGray: #494F4A;
+$green: #57B895;
+$ltGreen: #93B3A9;
+$ltGray: #BCC8C4;
 
-$spacing-unit:     30px;
-
-$text-color:       #111;
-$background-color: #fdfdfd;
-$brand-color:      #2a7ae2;
-
-$grey-color:       #828282;
-$grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark:  darken($grey-color, 25%);
+$gibson: 'Gibson W01', 'Helvetica Neue', 'Helvetica', sans-serif;
+$freight: 'Freight Display Pro W01', Georgia, serif;
 
 // Width of the content area
-$content-width:    800px;
-
-$on-palm:          600px;
-$on-laptop:        800px;
+$break1: 768px;
+$break2: 900px;
 
 
 
-// Use media queries like this:
-// @include media-query($on-palm) {
-//     .wrapper {
-//         padding-right: $spacing-unit / 2;
-//         padding-left: $spacing-unit / 2;
-//     }
-// }
-@mixin media-query($device) {
-    @media screen and (max-width: $device) {
+
+@mixin media-query( $size) {
+    @media screen and (min-width: $size) {
         @content;
     }
 }
@@ -47,7 +31,72 @@ $on-laptop:        800px;
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
-        "base",
-        "layout",
-        "syntax-highlighting"
+        "reset"
 ;
+
+/*
+ * Basic Setup & Typography
+ */
+ 
+body {
+	color: $drkGray;
+	font-family: $freight;	
+	font-size: 14px;
+	line-height: 1.5714em;
+}
+
+h1, h2, h3, h4, h5 h6 { font-family: $gibson; }
+
+h1, h2, h3 { margin: 0 0 1em; }
+
+h1 {
+	color: $drkGray;
+	font-size: 1.714em;
+	line-height: 1em;
+}
+
+h2 {
+	color: $drkGray;
+	font-size: 1.4285em;
+	line-height: 1.1em;
+}
+
+h3 {
+	color: $ltGreen;
+	font-size: 1.2857em;
+	line-height: 1.2223em;
+}
+
+p {
+	margin: 1.7142em 0;
+}
+
+ul, ol {
+	margin: 2.5em 0;
+	padding-left: 2.5em;
+}
+
+li { margin-bottom: .64em; }
+
+a { 
+	color: $green;
+	text-decoration: underline;
+}
+
+a:hover { text-decoration: none; }
+
+@include media-query( $break1 ) {
+	body {
+		font-size: 20px;
+		line-height: 1.6em;
+	}
+	
+	h1 { font-size: 2.4em; }	
+	h2 { font-size: 2em; }
+	h3 {
+		font-size: 1.8em;
+		line-height: 1.1667em;
+	}
+	
+	
+}
