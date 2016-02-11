@@ -19,20 +19,26 @@ $break1: 768px;
 $break2: 900px;
 
 
-
-
 @mixin media-query( $size) {
     @media screen and (min-width: $size) {
         @content;
     }
 }
 
+@mixin smoothie(){
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
 
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
         "reset"
 ;
+
+* {
+	box-sizing: border-box;
+}
 
 /*
  * Basic Setup & Typography
@@ -85,6 +91,52 @@ a {
 
 a:hover { text-decoration: none; }
 
+.button, button {
+	appearance: none;
+	background: #fff;
+	border: 2px solid $green;
+	border-radius: 17.5px;
+	color: $green;
+	cursor: pointer;
+	font-family: $gibson, "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 1.2857em;
+	font-weight: 600;
+	padding: 5px 32px;
+	text-decoration: none;
+	
+	&:hover, &:focus {
+		box-shadow: 0 0 6px rgba(42, 102, 81, .68);
+		text-decoration: underline;
+	}
+	
+	&:active {
+		background: $green;
+		color: #fff;
+		text-decoration: none;
+		
+		@include smoothie();
+	}	
+}
+
+.button-sec {
+	@extend .button;
+	border: 1px solid $drkGray;
+	color: $drkGray;
+	
+	&:hover, &:focus {
+		box-shadow: 0 0 6px rgba(73, 79, 74, .55);
+	}
+	
+	&:active {
+		background: #fff;
+		color: $drkGray;
+		
+		-webkit-font-smoothing: subpixel-antialiased;
+		-moz-osx-font-smoothing: default;
+	}
+	
+}
+
 @include media-query( $break1 ) {
 	body {
 		font-size: 20px;
@@ -98,5 +150,8 @@ a:hover { text-decoration: none; }
 		line-height: 1.1667em;
 	}
 	
-	
+	.button {
+		border-radius: 25.5px;		
+		font-size: 1.2em;
+	}
 }
