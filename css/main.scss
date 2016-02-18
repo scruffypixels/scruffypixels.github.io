@@ -266,10 +266,9 @@ nav {
 	
 }
 
-@include media-query( $break1 ) {
+@include media-query( 601px ) {
 	
 	nav {
-		font-size: .7em;
 		text-align: right;
 		
 		ul {
@@ -291,8 +290,12 @@ nav {
 			width: 100%;
 		}
 		
-	}
-	
+		.toggle { display: none; }		
+	}	
+}
+
+@include media-query( $break1 ) {
+	nav { font-size: .7em; }
 }
  
 /* Header */
