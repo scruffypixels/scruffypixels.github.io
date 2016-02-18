@@ -1,0 +1,35 @@
+---
+layout: post
+title:  "Part 1 - Big, Glossy UX"
+date:   2011-01-25
+categories: html5magazine
+description: A while back, I was waiting for a flight in an airport, killing time reading a magazine I had picked up at a newsstand. It wasn’t a particularly special magazine, the stories in it weren’t life changing or ground breaking, but as luck would have it, it was an experience that set off a chain of thoughts that led me to where I am now. That magazine had a beautiful full-color cover photograph, with vibrant colors that sucked me in (it’s probably half of why I bought that particular one). Its pages had varied layouts, with pictures and pull quotes that went with the flow of the story. The whole thing itself had texture, and each page and story varied slightly from the one before.
+---
+<div class="site-width">
+<p>A while back, I was waiting for a flight in an airport, killing time reading a magazine I had picked up at a newsstand. It wasn’t a particularly special magazine, the stories in it weren’t life changing or ground breaking, but as luck would have it, it was an experience that set off a chain of thoughts that led me to where I am now.</p>
+<p>That magazine had a beautiful full-color cover photograph, with vibrant colors that sucked me in (it’s probably half of why I bought that particular one). Its pages had varied layouts, with pictures and pull quotes that went with the flow of the story. The whole thing itself had texture, and each page and story varied slightly from the one before.</p>
+<p>It was, in a nutshell, the experience of reading a magazine – and a complete departure from what I later found when I visited the magazine’s website. Which was, of course, just like every magazine website you or I have ever visited: clunky, lists of links, disjointed, etc.</p>
+<p>It was one of those things where I had recently read a few things that all came together at that moment: new multi-column CSS3 implementation, the explosion of type on the web, and a few various other things. That’s when I decided I wanted to build a robust, web implementation of a magazine that mimicked the physical experience of reading an honest-to-god magazine.</p>
+<p>I started looking into how similar projects had been implemented. Sports Illustrated had been showing off its prototype – which was much more complicated than what I wanted to create, but very cool nonetheless. There were apps that were dedicated to magazines, but I wanted to use tools that could deliver to traditional electronic media (laptops/desktops) as well as tablets or other mobile devices.</p>
+<p>I came up with a list of requirements for what I wanted to produce:</p>
+<ul>
+	<li>Had to be built using HTML5 & CSS3 - multi-column layouts, media queries, everything needed to build a robust experience</li>
+	<li>Had to have a full-size (read: full screen) cover photograph – counterintuitive to the way most web versions of magazines work, but essential to a traditional magazine experience – there are several Jquery plugins I already had in mind for this</li>
+	<li>Must move side to side</li>
+</ul>
+<p>And then the two components that I thought were essential:</p>
+<ul>
+	<li>Must work on an iPad</li>
+	<li>Must be built on either WordPress or Drupal.</li>
+</ul>
+<p>Wait, go back to that last one…built on a CMS? Well, yes. While I don’t intend to release the code as a plugin or module, specifically, the idea is to build something that could be replicated on a monthly, bi-monthly, quarterly, etc. basis. Building it on a content management system means not reinventing the wheel when it comes time to publish every month, and takes a step towards having archived content available with little setup.</p>
+<p>What isn’t it going to do? Work in Internet Explorer – until they make a standards compliant browser, I can’t see building something this complicated so that it works in IE (unless someone wants to pay me). It’s also not going to be designed for smart phones – a full color photograph and traditional print layouts are best removed from those kinds of devices, and there are plenty of publications that have handset-ready formats.</p>
+<p>I see this project working in four parts:</p>
+<ul>
+	<li>Defining the project goals – I think we can call that done</li>
+	<li>Photoshop comp and HTML prototype – it doesn’t have to be final (I want to save some of the surprise for the final reveal) but to get an idea of how it’ll work, what issues are ahead, etc.</li>
+	<li>Implementation on top of a chosen CMS – I’ve worked with both WordPress and Drupal pretty extensively, but I’m still evaluating which one will be best for this project.</li>
+	<li>Wrap up – evaluate how it worked, how it didn’t, and what I’d do going forward to build on the project.</li>
+</ul>
+<p>This project is really about combining user experience in digital media with the user experiences we get with traditional media. It’s still enjoyable to read a magazine – it’s just not as easy, because most of us don’t spend eight hours at work in front of one.</p>
+<p>It might be timely, too. Looks like Apple is changing how it handles iPad publications and subscriptions. Might be time to move back to the browser...</p>

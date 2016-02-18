@@ -1,0 +1,17 @@
+---
+layout: page
+title: Latest Writing
+permalink: /writing/
+page-class: writing
+---
+
+<div class="site-width">
+	<div class="post-excerpts">
+    {% for post in site.posts %}
+      	<div>
+	      	<h2><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
+        	<span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>        
+		</div>
+		{% endfor %}
+	</div>
+</div> <!-- .site-width -->
