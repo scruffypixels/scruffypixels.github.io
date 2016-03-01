@@ -15,7 +15,7 @@ $gibson: 'Gibson W01', 'Helvetica Neue', 'Helvetica', sans-serif;
 $freight: 'Freight Display Pro W01', Georgia, serif;
 
 // Width of the content area
-$break1: 768px;
+$break1: 600px;
 $break2: 900px;
 
 
@@ -193,7 +193,7 @@ nav {
 	a { text-decoration: none; }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 599px) {
 	
 	nav.site-width {
 		background: #fff;
@@ -266,7 +266,7 @@ nav {
 	
 }
 
-@include media-query( 601px ) {
+@include media-query( 600px ) {
 	
 	nav {
 		text-align: right;
@@ -340,4 +340,118 @@ nav {
 			padding: 0 48px;
 		}
 	}
+}
+
+
+
+/* Work */
+
+.meta { display: none; }
+h2 + .meta { margin-top: 0; }
+
+.skills {
+	color: $ltGray;
+	font-family: $gibson;
+	font-size: .7em;
+	
+	span {
+		display: inline-block;
+		margin: 0 12px;
+	}
+}
+
+.project-byline {
+	font-size: .8em;
+	font-style: italic;
+	margin-bottom: 2.2857em;
+}
+
+
+
+@media screen and (max-width: 599px) {
+	.work-item {
+		margin: 48px 32px;
+		
+		img {
+			display: block;
+			margin: 0 auto;
+			max-width: 320px;
+			width: 100%;			
+		}
+	}
+	
+	.screenshot { display: none; }
+}
+
+@include media-query( $break1 ){
+	.work-item {
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
+		padding: 48px 0 48px 48px;
+		overflow: hidden;
+		width: 100%;
+	}
+	
+	.work-description {
+		flex-basis: calc(52% - 32px);
+		flex-shrink: 0;
+		
+		h2 { 
+			margin-bottom: 0;
+		}
+		
+		p:not(.meta){
+			margin-bottom: 32px;
+			
+			&:first-of-type { margin-top: 32px; }
+		}
+	}
+	
+	picture.screenshot {
+		display: block;
+		flex-grow: 0;
+		flex-basis: 48%;
+		margin-left: 32px;
+		
+
+	}
+	
+	.small-screenshot { display: none; }
+}
+
+@media screen and (min-width: 600px) and (max-width: 899px) {
+	
+	.work-description { max-width: 328px; }
+	
+	picture.screenshot { max-width: 420px;
+		img {
+			display: block;
+			max-width: 420px;
+		}
+	}
+}
+
+@include media-query ( $break2 ) {
+	
+	.work-item {
+		background: linear-gradient(-166deg, #FFFFFF 15%, #EFF2F1 100%);
+		height: 100vh;
+		justify-content: center;
+		max-height: 1024px;
+		min-height: 600px;
+		width: 100%;
+	}
+	
+	.work-description { max-width: 387px; }
+	
+	picture.screenshot {
+		flex-basis: 48%;
+		max-width: 680px;
+		
+		img { max-width: 100%; }
+	}
+	
+	.meta { display: block; }
+	
 }
