@@ -302,10 +302,14 @@ nav {
 
 .hero {
 	background: #45A368;
-	height: 320px;
+	display: block;
+	height: 180px;
 	position: relative;
 	
-	.site-width { height: 100%; }
+	.site-width {
+		height: 100%;
+		z-index: 2;
+	}
 	
 	h1 {
 		bottom: 32px;
