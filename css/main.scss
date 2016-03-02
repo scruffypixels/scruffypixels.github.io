@@ -43,6 +43,7 @@ $break2: 900px;
 
 * {
 	box-sizing: border-box;
+	border-collapse: collapse;
 }
 
 /*
@@ -104,6 +105,7 @@ a:hover { text-decoration: none; }
 	border-radius: 17.5px;
 	color: $green;
 	cursor: pointer;
+	display: inline-block;
 	font-family: $gibson, "Helvetica Neue", Helvetica, sans-serif;
 	font-size: 1.2857em;
 	font-weight: 600;
@@ -458,4 +460,38 @@ h2 + .meta { margin-top: 0; }
 	
 	.meta { display: block; }
 	
+}
+
+
+/* Posts */
+
+.post-excerpts {	
+	margin-top: 48px;
+}
+
+.post-excerpt {
+	margin-bottom: 48px;
+	
+	h2 {
+		margin-bottom: 0;
+		
+		a {
+			color: $drkGray;
+			text-decoration: none;
+		}		
+	}
+	
+	.post-date {
+		font-style: italic;
+		margin-top: .5em;
+	}
+}
+
+@include media-query( $break1 ) {
+	.post-excerpt { margin-bottom: 64px; }
+	
+	.post-date {
+		font-size: .8em;
+		margin-top: 0;
+	}
 }

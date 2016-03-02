@@ -8,10 +8,12 @@ page-class: writing
 <div class="site-width">
 	<div class="post-excerpts">
     {% for post in site.posts %}
-      	<div>
+      	<div class="post-excerpt">
 	      	<h2><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
-        	<span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>        
-		</div>
+        	<p class="post-date">Posted on: {{ post.date | date: "%b %-d, %Y" }}</p>
+        	<p>{{ post.description | strip_html }}</p>
+        	<a class="button-sec" href="{{ post.url | prepend: site.baseurl }}">Read the Full Post</a>
+		</div> <!-- .post-excerpt -->
 		{% endfor %}
-	</div>
+	</div> <!-- .post-excerpt -->
 </div> <!-- .site-width -->
