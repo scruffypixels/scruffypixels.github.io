@@ -337,6 +337,19 @@ nav {
 	}
 }
 
+.minimal {
+	background-color: transparent;
+	border-top: 1em solid $green;
+	height: auto;
+	padding-top: 1em;
+		
+	h1 {
+		color: $drkGray;
+		margin-bottom: 0;
+		position: static;
+	}
+}
+
 @include media-query( $break1 ) {
 	.hero {
 		height: 432px;
@@ -344,7 +357,7 @@ nav {
 		h1 {
 			bottom: 48px;
 			padding: 0 48px;
-		}		
+		}
 	}
 }
 
@@ -480,11 +493,11 @@ h2 + .meta { margin-top: 0; }
 			text-decoration: none;
 		}		
 	}
-	
-	.post-date {
-		font-style: italic;
-		margin-top: .5em;
-	}
+}
+
+.post-date {
+	font-style: italic;
+	margin-top: .5em;
 }
 
 @include media-query( $break1 ) {

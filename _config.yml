@@ -20,4 +20,4 @@ github_username:  scruffypixels
 # Build settings
 markdown: kramdown
 
-permalink: pretty
+permalink: /:slug/

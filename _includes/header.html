@@ -2,8 +2,12 @@
 
 <header class="{{ page.url | slugify }}">
 	{% if page.url != "/" %}
-		<div class="hero">
-			<div class="site-width">
+		{% if page.header-image %}
+			<div class="hero">
+		{% else %}
+			<div class="minimal">
+		{% endif %}
+				<div class="site-width">
 				<h1 class="smoothie">{{ page.title }}</h1>
 			</div> <!-- .site-width -->
 		</div> <!-- .hero -->
