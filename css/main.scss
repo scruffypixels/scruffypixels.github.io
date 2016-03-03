@@ -202,7 +202,7 @@ nav {
 		left: 0;
 		position: fixed;
 		top: 0;
-		transition: transform .5s ease-out;
+		transition: transform .40s ease-out;
 		
 		&.site-width { z-index: 100; } //keeps off-canvas above other site-width elements
 		
@@ -213,7 +213,7 @@ nav {
 			
 			&:first-child { top: 16px; }
 			
-			&:last-child { bottom: 56px; }
+			&:last-child { bottom: 112px; }
 			
 		}
 
