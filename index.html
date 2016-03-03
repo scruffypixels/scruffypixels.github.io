@@ -2,22 +2,26 @@
 layout: default
 ---
 
-<div class="home">
-
-  <h1 class="page-heading">Posts</h1>
-
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
-</div>
+<div class="site-width home">
+	
+	<div class="featured-work">
+		<p class="home-label">Featured Work</p>
+		<h2>The Flying Peanut</h2>
+		<p>The Flying Peanut is an digital surf magazine, built on the Concrete5 CMS. In addition to doing 100% of the design and development, it features my own words and writing. It's my playground to learn anything and everything on the internet.</p>
+		<picture>
+			<source srcset="{{ site.baseurl }}/images/featured-large.jpg" media="(min-width: 900px)">
+			<source srcset="{{ site.baseurl }}/images/featured-med.jpg" media="(min-width: 600px)">
+			<img src="{{ site.baseurl }}/images/featured-small.jpg" alt="The Flying Peanut">
+		</picture>
+		<a class="button" href="#">Read More</a><br>
+		<a class="button-sec" href="{{ site.baseurl }}/work/">See All Work</a>		
+	</div> <!-- .featured-work -->
+	
+	<div class="latest-posts">
+		{% for post in site.posts limit:2 %}
+			{% include post-excerpt.html %}
+		{% endfor %}
+		
+	</div> <!-- .latest-posts -->
+	
+</div> <!-- .home -->
