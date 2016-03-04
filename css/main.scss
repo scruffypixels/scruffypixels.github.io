@@ -468,6 +468,7 @@ h2 + .meta { margin-top: 0; }
 		flex-grow: 0;
 		flex-basis: 48%;
 		margin-left: 32px;
+		min-width: 0; /* firefox flex bug fix */
 		
 
 	}
@@ -501,7 +502,6 @@ h2 + .meta { margin-top: 0; }
 	.work-description { max-width: 387px; }
 	
 	picture.screenshot {
-		flex-basis: 48%;
 		max-width: 680px;
 		
 		img { max-width: 100%; }
