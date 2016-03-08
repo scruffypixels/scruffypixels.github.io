@@ -555,6 +555,7 @@ h2 + .meta { margin-top: 0; }
 .img-wide + figcaption {
 	font-style: italic;
 	margin-top: 7px;
+	margin-bottom: 32px;
 }
 
 @include media-query( $break2 ) {
