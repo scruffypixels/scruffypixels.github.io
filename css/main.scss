@@ -511,6 +511,58 @@ h2 + .meta { margin-top: 0; }
 	
 }
 
+.screenshot-buffet {
+	margin: 32px;
+	
+	picture {
+		width: 100%;
+	}
+	
+	img {
+		border: 2px solid $ltGray;
+		max-width: 100%;
+	}	
+}
+
+@include media-query( $break1 ) {
+	
+	.screenshot-buffet {
+		background-attachment: scroll;
+		background-position: center center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		border-bottom: 2px solid $ltGray;
+		border-top: 2px solid $ltGray;
+		height: 430px;
+		margin: 32px 0;
+		
+		picture { display: none; }
+	}
+	
+	/* individual screenshot buffet images */
+	.sb-tfp { background-image: url('../images/tfp-screenshot-buffet.jpg'); }
+}
+
+
+.img-wide {
+	display: block;
+	padding: 0 32px;
+	margin: 32px 0 0;
+	max-width: 964px;
+	width: 100%;
+}
+
+.img-wide + figcaption {
+	font-style: italic;
+	margin-top: 7px;
+}
+
+@include media-query( $break2 ) {
+	.img-wide {
+		margin: 0 auto;
+	}
+}
+
 
 /* Posts */
 
