@@ -145,6 +145,8 @@ a:hover { text-decoration: none; }
 	
 }
 
+.center { text-align: center; }
+
 @include media-query( $break1 ) {
 	body {
 		font-size: 20px;
@@ -287,6 +289,8 @@ nav {
 		
 		a {
 			align-items: center;
+			display: -webkit-flex;
+			display: -ms-flex;
 			display: flex;	
 			height: 100%;
 			width: 100%;
@@ -386,6 +390,17 @@ footer {
 			margin-bottom: 0;
 		}
 	}
+	
+	.social-links a {
+		display: inline-block;
+		&:not(:first-of-type) { margin-left: .5em; }
+	}
+	
+	svg {		
+		height: 32px;
+		
+		path { fill: $ltGray; }
+	}
 }
 
 @include media-query( $break1 ) {
@@ -440,17 +455,27 @@ h2 + .meta { margin-top: 0; }
 
 @include media-query( $break1 ){
 	.work-item {
-		align-items: center;
+		-webkit-align-items: center;
+		    -ms-align-items: center;
+				align-items: center;
+		display: -webkit-flex;
+		display: -ms-flex;
 		display: flex;
-		justify-content: space-between;
+		-webkit-justify-content: space-between;
+		    -ms-justify-content: space-between;
+				justify-content: space-between;
 		padding: 48px 0 48px 48px;
 		overflow: hidden;
 		width: 100%;
 	}
 	
 	.work-description {
-		flex-basis: calc(52% - 32px);
-		flex-shrink: 0;
+		-webkit-flex-basis: calc(52% - 32px);
+		    -ms-flex-basis: calc(52% - 32px);
+				flex-basis: calc(52% - 32px);
+		-webkit-flex-shrink: 0;
+		    -ms-flex-shrink: 0;
+				flex-shrink: 0;
 		
 		h2 { 
 			margin-bottom: 0;
@@ -465,8 +490,12 @@ h2 + .meta { margin-top: 0; }
 	
 	picture.screenshot {
 		display: block;
-		flex-grow: 0;
-		flex-basis: 48%;
+		-webkit-flex-grow: 0;
+		    -ms-flex-grow: 0;
+				flex-grow: 0;
+		-webkit-flex-basis: 48%;
+		    -ms-flex-basis: 48%;
+				flex-basis: 48%;
 		margin-left: 32px;
 		min-width: 0; /* firefox flex bug fix */
 		
@@ -653,14 +682,24 @@ h2 + .meta { margin-top: 0; }
 		min-height: 432px;
 		
 		&, .flex-div {
+			display: -webkit-flex;
+			display:     -ms-flex;
 			display: flex;
-			justify-content: center;
+			-webkit-justify-content: center;
+			    -ms-justify-content: center;
+					justify-content: center;
 		}
 		
-		.flex-div { align-items: flex-start; }
+		.flex-div {
+			-webkit-align-items: flex-start;
+			    -ms-align-items: flex-start;
+					align-items: flex-start;
+		}
 		
 		.intro {
-			order: 1;
+			-webkit-order: 1;
+			    -ms-order: 1;
+					order: 1;
 			margin: 0;
 			width: auto;
 		}
