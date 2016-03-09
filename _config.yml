@@ -21,3 +21,6 @@ github_username:  scruffypixels
 markdown: kramdown
 
 permalink: /:slug/
+
+sass:
+    style: compressed
