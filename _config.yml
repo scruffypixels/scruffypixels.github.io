@@ -9,7 +9,7 @@
 title: Scruffypixels &mdash; the Portfolio of Mike Dwyer
 email: mike@scruffypixels.com
 description: > # this means to ignore newlines until "baseurl:"
-  Mike Dwyer is a San Diego-based designer and front-end devloper
+  Mike Dwyer is a San Diego-based designer and front-end developer
   obsessed with clean designs, good code, and great chicken wings.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://www.scruffypixels.com" # the base hostname & protocol for your site
