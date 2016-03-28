@@ -405,6 +405,28 @@ footer {
 /*
  * Page & content specific styles
  */
+ 
+.img-wide {
+	display: block;
+	padding: 0 32px;
+	margin: 32px 0 0;
+	max-width: 964px;
+	width: 100%;
+}
+
+.img-wide + figcaption {
+	font-style: italic;
+	margin-top: 7px;
+	margin-bottom: 32px;
+}
+
+@include media-query( $break2 ) {
+	.img-wide {
+		margin: 0 auto;
+	}
+}
+
+.twitter-tweet { margin: 0 auto; } 
 
 /* Work */
 
@@ -563,28 +585,7 @@ h2 + .meta { margin-top: 0; }
 	}
 	
 	/* individual screenshot buffet images */
-	.sb-tfp { background-image: url('../images/tfp-screenshot-buffet.jpg'); }
-}
-
-
-.img-wide {
-	display: block;
-	padding: 0 32px;
-	margin: 32px 0 0;
-	max-width: 964px;
-	width: 100%;
-}
-
-.img-wide + figcaption {
-	font-style: italic;
-	margin-top: 7px;
-	margin-bottom: 32px;
-}
-
-@include media-query( $break2 ) {
-	.img-wide {
-		margin: 0 auto;
-	}
+	.sb-tfp { background-image: url('/images/tfp-screenshot-buffet.jpg'); }
 }
 
 
@@ -631,7 +632,7 @@ h2 + .meta { margin-top: 0; }
 	padding: 32px;
 	
 	&:after {
-		background: url('../images/home-background.jpg') scroll center center no-repeat;
+		background: url('/images/home-background.jpg') scroll center center no-repeat;
 		background-size: cover;
 	}
 	
