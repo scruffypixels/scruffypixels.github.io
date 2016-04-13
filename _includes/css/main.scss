@@ -90,6 +90,19 @@ a {
 	text-decoration: underline;
 }
 
+blockquote {
+	color: $drkGray;
+	font-family: $gibson;
+	font-size: 1.25em;
+	font-weight: 600;
+}
+
+code {
+	font-size: .9em;
+	margin-left: .15em;
+	margin-right: .15em;
+}
+
 a:hover { text-decoration: none; }
 
 .button, button {
@@ -100,7 +113,7 @@ a:hover { text-decoration: none; }
 	color: $green;
 	cursor: pointer;
 	display: inline-block;
-	font-family: $gibson, "Helvetica Neue", Helvetica, sans-serif;
+	font-family: $gibson;
 	font-size: 1.2857em;
 	font-weight: 600;
 	padding: 5px 32px;

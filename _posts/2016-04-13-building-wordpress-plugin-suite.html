@@ -1,0 +1,58 @@
+---
+layout:   post
+title:    "Building an Integrated WordPress Plugin Suite"
+meta-description: Tips and notes on building a set of WordPress plugins that work together to accomplish more than an individual plugin could on its own.
+categories: development
+description: "Building a WordPress plugin can help accomplish a variety of tasks. Building a set of them that work together can totally revamp the way you think about building websites."
+---
+
+<div class="site-width">
+	<p><em>Note: This is neither meant to be a definitive nor all-encompassing discussion on what is a vast topic with a variety of methods available. It’s just one example of how it can be done that may help others working on similar tasks.</em></p>
+	<p>Whether you work in a niche industry or at a general web dev shop, there’s a good chance that most of your projects have some constant overlap: a series of tasks you have to complete on almost every website. These can be things like contact forms or managing client data (addresses, social links, etc). If you work in the WordPress universe, there are probably plugins out there to handle some of these tasks. However, as anyone that’s worked with third-party code long enough knows, counting on the code of others for critical tasks can come back to bite you.</p>
+
+	<p>At <a href="http://www.rosemontmedia.com" target="_blank">Rosemont Media</a>, we decided there was enough reason to build a bespoke set of plugins to handle tasks for our clients, who all fit into a small industry niche. Rather than relying on other people’s plugins (OPP), which affected not just what was possible for our clients but our development workflow as well, we decided that building an integrated suite of plugins tailored to both who we worked with and how we wanted to work was the right course of action. This was not a small investment of time and resources, but as it gained momentum, the dividends were readily apparent.</p>
+
+	<p>While building something like this is best if it’s tailored to individual shops, there are a few things that we learned that can be helpful across the board.</p>
+	
+	<h2 id="standardizeEverything">1. Standardize Everything. EVERYTHING.</h2>
+	
+	<p>If you’re going to build an ever-growing library of code, pick an organizational method and stick to it everywhere that’s humanly possible. This should be everything from folder and file organization, to coding frameworks, naming conventions, and source control processes. This is especially true if you’re working with other developers, which if you’re building something this size is probably a given. A big advantage to this is that it’ll take away some of the constant double-checking you need to do as you write new modules in your plugins. Where things should go and what they should be named will become second nature the more time you spend working within the plugin universe you’re creating.</p>
+
+	<p>A potentially more important advantage to this is that, when something breaks, it should be easier to track it down and fix it. Because things will break, and there will be bugs. Oh yes, there will be bugs.</p>
+	
+	<h2 id="wordpressWork">2. Make WordPress Do As Much Work As Possible</h2>
+	
+	<p>WordPress has a significant amount of resources baked right into it for plugin developers. Maximize these to allow yourself to spend more time working on the custom parts of your plugins. This should be a no-brainer, but it’s often overlooked just how much you can make the CMS do your dirty work. Need an AJAX function? <code>wp_ajax</code> should be your best friend. Enqueue your stylesheets and scripts with <code>wp_enqueue_script</code> (or style) and pay close attention to priority. There’s literally dozens of things you can make WordPress do that you might not know about, so before you go down any road writing code to handle administrative tasks, double-check that there isn’t something baked into the WordPress core that will do it for you. When you find it, do it the same way every time (see #1).</p>
+	
+	<h2 id="pluginsRepeat">3. Don’t Repeat Yourself – Make the Plugins Do It</h2>
+
+	<p>As we developed more features into plugins, we found there were a lot of tasks that we had to repeatedly accomplish across plugins. Things like hooking the WordPress media uploader to input fields in different plugins. Rather than having to rewrite or, at best, copy javascript between plugins, we built a “core” plugin, what I commonly referred to as “one plugin to rule them all.”</p>
+	
+	<blockquote>One Plugin To Rule Them All, and In The Darkness $("them").bind();</blockquote>
+
+	<p>This plugin made a variety of standard features available on both admin and front-facing pages. We then made sure the dependent plugins required the core plugin in order to activate or stay enabled (there were a variety of hiccups to this, WordPress doesn’t make it easy). This way, we knew within our code that we could assume (within reason) that certain features would be available for use. This included javascript variables and methods, as well as more direct hooks into WordPress functionality, like the Settings API or adding menu items.</p>
+
+	<p>The goal of building a plugin suite is to make repeated development tasks easier and more robust. A well-thought-out core plugin pays dividends every time your dependent plugins make use of its features, so don’t hesitate to spend time on it. Speaking of efficiency...</p>
+	
+	<h2 id="dontNeglectUX">4. Don’t Neglect The Design and UX of Your Admin Interfaces</h2>
+	
+	<p>One of the best ways I knew what we were building was on the right track was when one of our devs said that a new plugin had cut a repetitive task’s time in half, measured in hours. That’s a savings of hundreds of dollars for the company in one day.</p>
+
+	<p>The reason for this wasn’t about code execution time or better written javascript; the reason was because we took the time to explore how we wanted the plugin to solve our existing problem. If you’re familiar with the task you’ll be using the plugin to accomplish, then you’ve already got insight into how it should work; if not, find people that will be using that plugin in their daily jobs. Those people are the ones who will be able to help you create solutions that will be efficient and make their task easier. If you’re not comfortable with the idea of designing or prioritizing features, find someone in your organization to take ownership of that part of the process before you start building.</p>
+
+	<p>While WordPress will dictate some of how you have to lay out your plugins’ interfaces, taking time to design the parts you can control is an important part of how successful a plugin will be. Whether it's members of your in-house team or clients who will be using the plugin, an intuitive interface will make or break the usefulness of your work. If you find yourself constantly fielding help requests for a certain process, it may be time to revisit that portion to ensure that the experience is up to par.</p>
+
+	<p>Along the same lines, for bonus points, consider that this is an opportunity for your plugin to build your brand. We created a set of recognizable styles for common items (primary and secondary buttons, droppable items, etc) that were enqueued on our admin pages via the core plugin. This way, when you landed on a part of the admin interface that was branded a certain way, you knew you were working with custom code. This can be a source of pride for internal users in your organization, and for clients it serves to show how dedicated you are to building a platform that caters to their needs. If you mix in some interaction design for common UX items across your plugins, it can also help establish common patterns that your users will become familiar with (efficiency!).</p>
+	
+	<h2 id="abstractLayouts">5. Abstract Your User Facing Layouts Into Your Theme – With Defaults</h2>
+	
+	<p>One of the biggest challenges about building plugins that show information to website end users is figuring out how to display that information in a way that will work with a variety of themes. After trying several approaches, we figured that the best way to do this was to write our code to check for theme-specific display code, and if it didn’t exist to use defaults written into the plugin. This way, your default plugin code never needs to be touched to change the layout (which means it stays current with your source control), but allows unlimited flexibility for individual websites to display that information in a totally different way, if it matches their theme better. Sometimes this can be as easy as checking for a user-defined function in the functions.php file, and using a default function if none is found. Other times, we found that <code>locate_template</code> and <code>get_template_part</code>, in combination with filters, were very useful for displaying information created by custom post types.</p>
+	
+	<h2>If You Build It, They Will <strike>Come</strike> Use It</h2>
+
+	<p>Building plugins that will be used on multiple websites is basically creating a product, with all the inherent advantages and pitfalls of product design and development. But here’s the kicker: when you’re building plugins for use in your own web projects, that will help your organization’s workflow or your clients’ tasks, you’re a giant step ahead on the product design ladder: you <strong>know</strong> you have a market already. Whether it’s only internal or there’s a chance to use what you’re creating as source of recurring revenue, you’ve already got users waiting. Taking the time to create an integrated set of products that work together in WordPress, or any CMS really, can multiply your increased efficiency every time you add a new plugin to the suite. You’re building a foundation for your users and your team: making their work easier means they have more free time to build truly unique experiences.</p>
+
+	<p><em>I'd be remiss if I didn't give credit to fellow developer at RM, <a href="http://www.ruben-marin.com" target="_blank">Ruben Marin (whose website is under construction)</a>, who went on the giant rollercoaster of figuring all this out with me. One of the best developers I've ever had the chance to work with.</em></p>
+	
+	
+</div> <!-- .site-width -->
