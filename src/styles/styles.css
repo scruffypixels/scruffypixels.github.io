@@ -44,3 +44,30 @@ h4 {
 h5 {
   font-size: var(--h5-font-size);
 }
+
+ nav {
+    left: 0;
+    padding: 3rem;
+    position: fixed;
+    text-align: right;
+    top: 0;
+    width: 100vw;
+
+    h5 {
+      display: inline-block;
+
+      &:not(:last-child) {
+        margin-right: 3rem;
+      }
+    }
+
+    a {
+      color: var(--heading-text-color);
+      text-decoration: none;
+
+      svg {
+        height: 2rem;
+        width: 2rem;
+      }
+    }
+  }
