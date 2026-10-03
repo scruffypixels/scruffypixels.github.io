@@ -1,17 +1,44 @@
 ---
-
+import { Font } from "astro:assets";
+import '../styles/styles.css';
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
+		<Font cssVariable="--font-inter" />
+		<Font cssVariable="--font-source-serif" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>Mike Dwyer – Staff Engineer</title>
+		<style>
+			section {
+				align-items: center;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				height: 100vh;
+				width: 100vw;
+
+				h1 {
+					line-height: .9167em;
+				}
+
+				p {
+					margin: 1.25em auto;
+				}
+			}
+		</style>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<section>
+			<div>
+				<h1>Mike Dwyer</h1>
+				<h4>Staff Engineer</h4>
+				<p>I build stuff. Usually on the internet, sometimes IRL.</p>
+			</div>
+		</section>
 	</body>
 </html>

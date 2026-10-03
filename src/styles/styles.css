@@ -1,0 +1,46 @@
+@import "reset.css" layer(reset);
+
+:root {
+  --bg-color: #fafaf9;
+  --heading-text-color: #030b37;
+  --body-text-color: #76777d;
+  --heading-font-face: var(--font-inter), sans-serif; 
+  --body-copy-font-face: var(--font-source-serif), serif;
+  --h1-font-size: 3rem;
+  --h2-font-size: 2.25rem;
+  --h3-font-size: 1.5rem;
+  --h4-font-size: 1.25rem;
+  --h5-font-size: 1rem;
+  --body-copy-font-size: 1rem;
+}
+
+html, body {
+  background-color: var(--bg-color);
+  color: var(--body-text-color);
+  font-family: var(--body-copy-font-face);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--heading-text-color);
+  font-family: var(--heading-font-face);
+}
+
+h1 {
+  font-size: var(--h1-font-size);
+}
+
+h2 {
+  font-size: var(--h2-font-size);
+}
+
+h3 {
+  font-size: var(--h3-font-size);
+}
+
+h4 {
+  font-size: var(--h4-font-size);
+}
+
+h5 {
+  font-size: var(--h5-font-size);
+}
