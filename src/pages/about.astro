@@ -1,0 +1,33 @@
+---
+import { Font } from "astro:assets";
+import '../styles/styles.css';
+import Navigation from '../components/Navigation/Navigation.astro';
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<Font cssVariable="--font-inter" />
+		<Font cssVariable="--font-source-serif" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Mike Dwyer – About</title>
+		<style>
+			.container {
+				padding-top: 6rem;
+			}
+		</style>
+	</head>
+	<body>
+		<Navigation />
+		<section class="container">
+		<div class="columns-12">
+			<h1>I'm a staff engineer who's built a few things.</h1>
+			<p>I’ve been building things on the internet – websites, software, blogs, you name it – since the days of dial up. From the beginning, my primary focus has always been on building things that people love to interact with and use. I gravitated towards the parts of development that have the biggest impact on user experience, working hand-in-hand with product and design to build, test, and iterate in order to deliver something that works well and is enjoyable to use.</p>
+			<p>Recently, I’ve spent significant time working on tools for other developers to make these efforts easier for other engineers. Consistent experiences for end users come from consistent tooling for developers and cohesion between design, product, and engineering. Design systems and front end architecture tools have been the bedrock of what I’ve built, along with easy-to-use APIs, authentication patterns, and the documentation to put it all together effectively.</p>
+		</div>
+	</section>
+	</body>
+</html>
